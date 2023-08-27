@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 17
+Specification-Title: Camel SB Examples :: SOAP CXF
+Specification-Version: 3.20
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: Camel SB Examples :: SOAP CXF
+Implementation-Version: 3.20.1.redhat-00001
+Implementation-Vendor: The Apache Software Foundation
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,1268 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://schemas.mofa.gov.sa/NicG2GService/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="NicG2GService" targetNamespace="http://schemas.mofa.gov.sa/NicG2GService/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/">
+            <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+            <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+            <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+            <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+            <xs:element name="byte" nillable="true" type="xs:byte"/>
+            <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+            <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+            <xs:element name="double" nillable="true" type="xs:double"/>
+            <xs:element name="float" nillable="true" type="xs:float"/>
+            <xs:element name="int" nillable="true" type="xs:int"/>
+            <xs:element name="long" nillable="true" type="xs:long"/>
+            <xs:element name="QName" nillable="true" type="xs:QName"/>
+            <xs:element name="short" nillable="true" type="xs:short"/>
+            <xs:element name="string" nillable="true" type="xs:string"/>
+            <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+            <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+            <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+            <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+            <xs:element name="char" nillable="true" type="tns:char"/>
+            <xs:simpleType name="char">
+                <xs:restriction base="xs:int"/>
+            </xs:simpleType>
+            <xs:element name="duration" nillable="true" type="tns:duration"/>
+            <xs:simpleType name="duration">
+                <xs:restriction base="xs:duration">
+                    <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+                    <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+                    <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="guid" nillable="true" type="tns:guid"/>
+            <xs:simpleType name="guid">
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:attribute name="FactoryType" type="xs:QName"/>
+            <xs:attribute name="Id" type="xs:ID"/>
+            <xs:attribute name="Ref" type="xs:IDREF"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService">
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema"/>
+            <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+            <xs:complexType name="BlackListRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="BlackListParam" nillable="true" type="q1:BlackListParam"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BlackListRequestMessage" nillable="true" type="tns:BlackListRequestMessage"/>
+            <xs:complexType name="BlackListResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="BlackList" nillable="true" type="q2:ArrayOfBlackListData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BlackListResponseMessage" nillable="true" type="tns:BlackListResponseMessage"/>
+            <xs:complexType name="DeporteesRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="DeporteesRequestParam" nillable="true" type="q3:DeporteesParam"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DeporteesRequestMessage" nillable="true" type="tns:DeporteesRequestMessage"/>
+            <xs:complexType name="DeporteesResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="DeporteesData" nillable="true" type="q4:DeporteesData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DeporteesResponseMessage" nillable="true" type="tns:DeporteesResponseMessage"/>
+            <xs:complexType name="ResidentInformationRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ResidentInformationParam" nillable="true" type="q5:ResidentInformationParam"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResidentInformationRequestMessage" nillable="true" type="tns:ResidentInformationRequestMessage"/>
+            <xs:complexType name="ResidentInformationResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ResidentInformationData" nillable="true" type="q6:ResidentInformationData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResidentInformationResponseMessage" nillable="true" type="tns:ResidentInformationResponseMessage"/>
+            <xs:complexType name="CitizenInformationRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="CitizenInformationParam" nillable="true" type="q7:CitizenInformationParam"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CitizenInformationRequestMessage" nillable="true" type="tns:CitizenInformationRequestMessage"/>
+            <xs:complexType name="CitizenInformationResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="CitizenInformationData" nillable="true" type="q8:CitizenInformationData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CitizenInformationResponseMessage" nillable="true" type="tns:CitizenInformationResponseMessage"/>
+            <xs:complexType name="ValidateVisaDataRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ValidateVisaData" nillable="true" type="q9:VisaData_x0020_"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ValidateVisaDataRequestMessage" nillable="true" type="tns:ValidateVisaDataRequestMessage"/>
+            <xs:complexType name="ValidateVisaDataResponseMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IsValid" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ValidateVisaDataResponseMessage" nillable="true" type="tns:ValidateVisaDataResponseMessage"/>
+            <xs:complexType name="SendVisaG2gRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ListVisaData" nillable="true" type="q10:ArrayOfVisaData_x0020_"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="SendVisaG2gRequestMessage" nillable="true" type="tns:SendVisaG2gRequestMessage"/>
+            <xs:complexType name="SendVisaG2gResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ListVisaStatus" nillable="true" type="q11:ArrayOfVisaStatus_x0020_"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="SendVisaG2gResponseMessage" nillable="true" type="tns:SendVisaG2gResponseMessage"/>
+            <xs:complexType name="CancelVisaG2gRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="VisaNumbers" nillable="true" type="q12:ArrayOflong"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CancelVisaG2gRequestMessage" nillable="true" type="tns:CancelVisaG2gRequestMessage"/>
+            <xs:complexType name="CancelVisaG2gResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="CancelVisaStatusList" nillable="true" type="q13:ArrayOfCancelVisaStatus"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CancelVisaG2gResponseMessage" nillable="true" type="tns:CancelVisaG2gResponseMessage"/>
+            <xs:complexType name="BlackListDeporteesG2gRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="BlackListDeporteesParam" nillable="true" type="q14:BlackListDeporteesParam"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BlackListDeporteesG2gRequestMessage" nillable="true" type="tns:BlackListDeporteesG2gRequestMessage"/>
+            <xs:complexType name="BlackListDeporteesG2gResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="BlackListData" nillable="true" type="q15:ArrayOfBlackListData"/>
+                    <xs:element minOccurs="0" name="Deported" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BlackListDeporteesG2gResponseMessage" nillable="true" type="tns:BlackListDeporteesG2gResponseMessage"/>
+            <xs:complexType name="GetNicRejectedVisaRequestMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="RejectedVisaDate" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetNicRejectedVisaRequestMessage" nillable="true" type="tns:GetNicRejectedVisaRequestMessage"/>
+            <xs:complexType name="GetNicRejectedVisaResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="VisaNumbers" nillable="true" type="q16:ArrayOfdouble"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetNicRejectedVisaResponseMessage" nillable="true" type="tns:GetNicRejectedVisaResponseMessage"/>
+            <xs:complexType name="GetExitEntryVisaRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ExitEntryVisaParam" nillable="true" type="q17:ExitEntryVisaParam"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetExitEntryVisaRequestMessage" nillable="true" type="tns:GetExitEntryVisaRequestMessage"/>
+            <xs:complexType name="GetExitEntryVisaResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ExitEntryVisaData" nillable="true" type="q18:ExitEntryVisaData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetExitEntryVisaResponseMessage" nillable="true" type="tns:GetExitEntryVisaResponseMessage"/>
+            <xs:complexType name="GetExitEntryVisaWithResidentInfoRequestMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ExitEntryVisaParam" nillable="true" type="q19:ExitEntryVisaParam"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetExitEntryVisaWithResidentInfoRequestMessage" nillable="true" type="tns:GetExitEntryVisaWithResidentInfoRequestMessage"/>
+            <xs:complexType name="GetExitEntryVisaWithResidentInfoResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ExitEntryVisaData" nillable="true" type="q20:ExitEntryVisaData"/>
+                    <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" minOccurs="0" name="ResidentInformationData" nillable="true" type="q21:ResidentInformationData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetExitEntryVisaWithResidentInfoResponseMessage" nillable="true" type="tns:GetExitEntryVisaWithResidentInfoResponseMessage"/>
+            <xs:complexType name="GetWorkVisaDataRequestMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="InDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="PageNumber" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetWorkVisaDataRequestMessage" nillable="true" type="tns:GetWorkVisaDataRequestMessage"/>
+            <xs:complexType name="GetWorkVisaDataResponseMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="NoOfPages" type="xs:int"/>
+                    <xs:element minOccurs="0" name="WorkVisaDataList" nillable="true" type="tns:ArrayOfWorkVisaData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetWorkVisaDataResponseMessage" nillable="true" type="tns:GetWorkVisaDataResponseMessage"/>
+            <xs:complexType name="ArrayOfWorkVisaData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkVisaData" nillable="true" type="tns:WorkVisaData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfWorkVisaData" nillable="true" type="tns:ArrayOfWorkVisaData"/>
+            <xs:complexType name="WorkVisaData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="SponsorAddress" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SponsorFileNo" type="xs:int"/>
+                    <xs:element minOccurs="0" name="SponsorID" type="xs:double"/>
+                    <xs:element minOccurs="0" name="SponsorName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="VisaIssueDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="VisaNo" type="xs:double"/>
+                    <xs:element minOccurs="0" name="VisaType" type="xs:short"/>
+                    <xs:element minOccurs="0" name="WorkVisaDetailList" nillable="true" type="tns:ArrayOfWorkVisaDetail"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="WorkVisaData" nillable="true" type="tns:WorkVisaData"/>
+            <xs:complexType name="ArrayOfWorkVisaDetail">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkVisaDetail" nillable="true" type="tns:WorkVisaDetail"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfWorkVisaDetail" nillable="true" type="tns:ArrayOfWorkVisaDetail"/>
+            <xs:complexType name="WorkVisaDetail">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BorderNo" type="xs:double"/>
+                    <xs:element minOccurs="0" name="EmbassyCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Gender" type="xs:int"/>
+                    <xs:element minOccurs="0" name="JobOrRelation" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PersonName" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="WorkVisaDetail" nillable="true" type="tns:WorkVisaDetail"/>
+            <xs:complexType name="GetDeletedWorkVisaRequestMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="InDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="PageNumber" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetDeletedWorkVisaRequestMessage" nillable="true" type="tns:GetDeletedWorkVisaRequestMessage"/>
+            <xs:complexType name="GetDeletedWorkVisaResponseMessage">
+                <xs:sequence>
+                    <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BorderNumbers" nillable="true" type="q22:ArrayOfdouble"/>
+                    <xs:element minOccurs="0" name="NoOfPages" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetDeletedWorkVisaResponseMessage" nillable="true" type="tns:GetDeletedWorkVisaResponseMessage"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService.ServiceSchema">
+            <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xs:complexType name="BlackListParam">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="EmployeeNationalId" type="xs:double"/>
+                    <xs:element minOccurs="0" name="Family_Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="First_Name" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Gregorian_Birth_Date" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="Nationality_Code" type="xs:short"/>
+                    <xs:element minOccurs="0" name="Passport_Number" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BlackListParam" nillable="true" type="tns:BlackListParam"/>
+            <xs:complexType name="ArrayOfBlackListData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="BlackListData" nillable="true" type="tns:BlackListData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfBlackListData" nillable="true" type="tns:ArrayOfBlackListData"/>
+            <xs:complexType name="BlackListData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Automatic_DE_DT" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="BrithCountry" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BrithDateG" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BrithDateH" type="xs:int"/>
+                    <xs:element minOccurs="0" name="CreateReason" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="CreationHegiraDate" type="xs:int"/>
+                    <xs:element minOccurs="0" name="FatherName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="GrandFatherName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="MiscreantNo" type="xs:int"/>
+                    <xs:element minOccurs="0" name="MotherFamilyName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="MotherName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Requesty" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BlackListData" nillable="true" type="tns:BlackListData"/>
+            <xs:complexType name="DeporteesParam">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BirthDateG" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="EmployeeNationalId" type="xs:double"/>
+                    <xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NationalityCode" type="xs:short"/>
+                    <xs:element minOccurs="0" name="PassportNumber" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DeporteesParam" nillable="true" type="tns:DeporteesParam"/>
+            <xs:complexType name="DeporteesData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DeportationDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="Deported" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="Eligibility" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DeporteesData" nillable="true" type="tns:DeporteesData"/>
+            <xs:complexType name="ResidentInformationParam">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IqamaExpiryDateH" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IqamaNO" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResidentInformationParam" nillable="true" type="tns:ResidentInformationParam"/>
+            <xs:complexType name="ResidentInformationData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BirthCountry" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BirthDateG" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="BirthDateH" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="District" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FamilyNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FatherNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="GenderCode" type="tns:Gender_Enum"/>
+                    <xs:element minOccurs="0" name="GrandNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IqamaExpiryDateG" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="IqamaExpiryDateH" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IqamaIssuePlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IqamaNo" type="xs:double"/>
+                    <xs:element minOccurs="0" name="MaritalStatus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NationalityCode" type="xs:short"/>
+                    <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Religion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SponsorID" type="xs:double"/>
+                    <xs:element minOccurs="0" name="SponsorName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Zone" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResidentInformationData" nillable="true" type="tns:ResidentInformationData"/>
+            <xs:simpleType name="Gender_Enum">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Undefined"/>
+                    <xs:enumeration value="Male"/>
+                    <xs:enumeration value="Female"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="Gender_Enum" nillable="true" type="tns:Gender_Enum"/>
+            <xs:complexType name="CitizenInformationParam">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BirthDateH" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NationalID" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CitizenInformationParam" nillable="true" type="tns:CitizenInformationParam"/>
+            <xs:complexType name="CitizenInformationData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BirthCity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BirthDateG" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="BirthDateH" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="DeathStatus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="District" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FamilyNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FamilyNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FatherNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FatherNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="GrandfatherNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="GrandfatherNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="MaritalStatus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NationalID" type="xs:double"/>
+                    <xs:element minOccurs="0" name="NationalIDExpiryDateG" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="NationalIDExpiryDateH" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NationalIDIssuePlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="OccupationCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SexCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Zone" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CitizenInformationData" nillable="true" type="tns:CitizenInformationData"/>
+            <xs:complexType name="VisaData_x0020_">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BankOrderNo" type="xs:long"/>
+                    <xs:element minOccurs="0" name="BioStatusFlag" type="xs:long"/>
+                    <xs:element minOccurs="0" name="BiometricRefNo" type="xs:long"/>
+                    <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BorderNo" type="xs:long"/>
+                    <xs:element minOccurs="0" name="EmbVisaIssueDate" type="xs:long"/>
+                    <xs:element minOccurs="0" name="EmbassyCode" type="xs:long"/>
+                    <xs:element minOccurs="0" name="FamilyNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FamilyNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FatherNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FatherNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Gender" type="xs:long"/>
+                    <xs:element minOccurs="0" name="GrandFatherNameAr" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="GrandFatherNameEn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="IntendedForOmrah" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="JobOrRelation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NumberOfEntries" type="xs:long"/>
+                    <xs:element minOccurs="0" name="PassportExpiryDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="PassportIssueDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="PassportIssuePlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PassportNo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PassportType" type="xs:long"/>
+                    <xs:element minOccurs="0" name="PrevNationality" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Religion" type="xs:int"/>
+                    <xs:element minOccurs="0" name="RequireHealthInsurance" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="ResidenceDuration" type="xs:long"/>
+                    <xs:element minOccurs="0" name="SponsorAddress" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SponsorID" type="xs:long"/>
+                    <xs:element minOccurs="0" name="UmrahProviderID" type="xs:long"/>
+                    <xs:element minOccurs="0" name="UmrahProviderName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ValidityDuration" type="xs:long"/>
+                    <xs:element minOccurs="0" name="ValidityPassingTo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="VisaCompanion" nillable="true" type="tns:VisaCompanion"/>
+                    <xs:element minOccurs="0" name="VisaJobCode" type="xs:long"/>
+                    <xs:element minOccurs="0" name="VisaNo" type="xs:long"/>
+                    <xs:element minOccurs="0" name="VisaPermitNo" type="xs:long"/>
+                    <xs:element minOccurs="0" name="VisaType" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="VisaData_x0020_" nillable="true" type="tns:VisaData_x0020_"/>
+            <xs:complexType name="VisaCompanion">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CompanionDoB" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="CompanionName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="CompanionSex" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Relation" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="VisaNo" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="VisaCompanion" nillable="true" type="tns:VisaCompanion"/>
+            <xs:complexType name="ArrayOfVisaData_x0020_">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="VisaData_x0020_" nillable="true" type="tns:VisaData_x0020_"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfVisaData_x0020_" nillable="true" type="tns:ArrayOfVisaData_x0020_"/>
+            <xs:complexType name="ArrayOfVisaStatus_x0020_">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="VisaStatus_x0020_" nillable="true" type="tns:VisaStatus_x0020_"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfVisaStatus_x0020_" nillable="true" type="tns:ArrayOfVisaStatus_x0020_"/>
+            <xs:complexType name="VisaStatus_x0020_">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ResponseDesc" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Status" type="tns:VisaStatusEnum"/>
+                    <xs:element minOccurs="0" name="VisaNo" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="VisaStatus_x0020_" nillable="true" type="tns:VisaStatus_x0020_"/>
+            <xs:simpleType name="VisaStatusEnum">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Success">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Failed">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Rejected">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="VisaStatusEnum" nillable="true" type="tns:VisaStatusEnum"/>
+            <xs:complexType name="ArrayOfCancelVisaStatus">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="CancelVisaStatus" nillable="true" type="tns:CancelVisaStatus"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfCancelVisaStatus" nillable="true" type="tns:ArrayOfCancelVisaStatus"/>
+            <xs:complexType name="CancelVisaStatus">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="MessageCode" type="xs:long"/>
+                    <xs:element minOccurs="0" name="VisaNo" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CancelVisaStatus" nillable="true" type="tns:CancelVisaStatus"/>
+            <xs:complexType name="BlackListDeporteesParam">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BirthDateG" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="EmployeeNationalId" type="xs:double"/>
+                    <xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="NationalityCode" type="xs:short"/>
+                    <xs:element minOccurs="0" name="PassportNumber" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="BlackListDeporteesParam" nillable="true" type="tns:BlackListDeporteesParam"/>
+            <xs:complexType name="ExitEntryVisaParam">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="EmployeeNationalId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="IqamaNo" type="xs:long"/>
+                    <xs:element minOccurs="0" name="SponsorID" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ExitEntryVisaParam" nillable="true" type="tns:ExitEntryVisaParam"/>
+            <xs:complexType name="ExitEntryVisaData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ExitEntryVisaClass" type="tns:ExitEntryVisaClass_Enum"/>
+                    <xs:element minOccurs="0" name="ExitEntryVisaExpiryDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="IqamaExpiryDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="LastExitDate" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ExitEntryVisaData" nillable="true" type="tns:ExitEntryVisaData"/>
+            <xs:simpleType name="ExitEntryVisaClass_Enum">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Single"/>
+                    <xs:enumeration value="Multiple"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="ExitEntryVisaClass_Enum" nillable="true" type="tns:ExitEntryVisaClass_Enum"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schemas.mofa.gov.sa/NicG2GService/">
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService"/>
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.ServiceSchema"/>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="BlackListRequestMessage" nillable="true" type="q1:BlackListRequestMessage"/>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="BlackListResponseMessage" nillable="true" type="q2:BlackListResponseMessage"/>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="DeporteesRequestMessage" nillable="true" type="q3:DeporteesRequestMessage"/>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="DeporteesResponseMessage" nillable="true" type="q4:DeporteesResponseMessage"/>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="ResidentInformationRequestMessage" nillable="true" type="q5:ResidentInformationRequestMessage"/>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="ResidentInformationResponseMessage" nillable="true" type="q6:ResidentInformationResponseMessage"/>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="CitizenInformationRequestMessage" nillable="true" type="q7:CitizenInformationRequestMessage"/>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="CitizenInformationResponseMessage" nillable="true" type="q8:CitizenInformationResponseMessage"/>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="ValidateVisaDataRequestMessage" nillable="true" type="q9:ValidateVisaDataRequestMessage"/>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="ValidateVisaDataResponseMessage" nillable="true" type="q10:ValidateVisaDataResponseMessage"/>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="SendVisaG2gRequestMessage" nillable="true" type="q11:SendVisaG2gRequestMessage"/>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="SendVisaG2gResponseMessage" nillable="true" type="q12:SendVisaG2gResponseMessage"/>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="CancelVisaG2gRequestMessage" nillable="true" type="q13:CancelVisaG2gRequestMessage"/>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="CancelVisaG2gResponseMessage" nillable="true" type="q14:CancelVisaG2gResponseMessage"/>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="BlackListDeporteesG2gRequestMessage" nillable="true" type="q15:BlackListDeporteesG2gRequestMessage"/>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="BlackListDeporteesG2gResponseMessage" nillable="true" type="q16:BlackListDeporteesG2gResponseMessage"/>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.ServiceSchema" name="GetOrganizationVisaInfoRequestMessage" nillable="true" type="q17:GetOrganizationVisaInfoRequestMessage"/>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.ServiceSchema" name="GetOrganizationVisaInfoResponseMessage" nillable="true" type="q18:GetOrganizationVisaInfoResponseMessage"/>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetNicRejectedVisaRequestMessage" nillable="true" type="q19:GetNicRejectedVisaRequestMessage"/>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetNicRejectedVisaResponseMessage" nillable="true" type="q20:GetNicRejectedVisaResponseMessage"/>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetExitEntryVisaRequestMessage" nillable="true" type="q21:GetExitEntryVisaRequestMessage"/>
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetExitEntryVisaResponseMessage" nillable="true" type="q22:GetExitEntryVisaResponseMessage"/>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetExitEntryVisaWithResidentInfoRequestMessage" nillable="true" type="q23:GetExitEntryVisaWithResidentInfoRequestMessage"/>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetExitEntryVisaWithResidentInfoResponseMessage" nillable="true" type="q24:GetExitEntryVisaWithResidentInfoResponseMessage"/>
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetWorkVisaDataRequestMessage" nillable="true" type="q25:GetWorkVisaDataRequestMessage"/>
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetWorkVisaDataResponseMessage" nillable="true" type="q26:GetWorkVisaDataResponseMessage"/>
+            <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetDeletedWorkVisaRequestMessage" nillable="true" type="q27:GetDeletedWorkVisaRequestMessage"/>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.G2GService" name="GetDeletedWorkVisaResponseMessage" nillable="true" type="q28:GetDeletedWorkVisaResponseMessage"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.mofa.gov.sa/esb/2014/12/" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.mofa.gov.sa/esb/2014/12/">
+            <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xs:complexType name="ContextInformation">
+                <xs:sequence>
+                    <xs:element name="MessageId" type="ser:guid"/>
+                    <xs:element name="Language" type="tns:Languages"/>
+                    <xs:element minOccurs="0" name="ClientUserId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="ClientUsername" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ClientDisplayName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ClientDateTime" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="ClientSessionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ClientIp" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ConsumerStationName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ConsumerStationIp" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TransmissionTimestamp" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="ExtraMetadata" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="TransactionId" type="ser:guid"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ContextInformation" nillable="true" type="tns:ContextInformation"/>
+            <xs:simpleType name="Languages">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="En"/>
+                    <xs:enumeration value="Ar"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="Languages" nillable="true" type="tns:Languages"/>
+            <xs:complexType name="Credential">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="PasswordType" type="tns:PasswordTypes"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Credential" nillable="true" type="tns:Credential"/>
+            <xs:simpleType name="PasswordTypes">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Clear"/>
+                    <xs:enumeration value="HashedSha1"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="PasswordTypes" nillable="true" type="tns:PasswordTypes"/>
+            <xs:complexType name="ResponseResult">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+                    </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ResponseStatus" type="tns:ResponseStatuses"/>
+                    <xs:element minOccurs="0" name="ResponseCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SeverityLevel" type="tns:SeverityLevels"/>
+                    <xs:element minOccurs="0" name="ResponseDetails" nillable="true" type="tns:ResponseDetails"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResponseResult" nillable="true" type="tns:ResponseResult"/>
+            <xs:simpleType name="ResponseStatuses">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Success"/>
+                    <xs:enumeration value="SuccessWithWarnings"/>
+                    <xs:enumeration value="Failure"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="ResponseStatuses" nillable="true" type="tns:ResponseStatuses"/>
+            <xs:simpleType name="SeverityLevels">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Information"/>
+                    <xs:enumeration value="Warning"/>
+                    <xs:enumeration value="Error"/>
+                    <xs:enumeration value="FatalError"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="SeverityLevels" nillable="true" type="tns:SeverityLevels"/>
+            <xs:complexType name="ResponseDetails">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseDetail" nillable="true" type="tns:ResponseDetail"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResponseDetails" nillable="true" type="tns:ResponseDetails"/>
+            <xs:complexType name="ResponseDetail">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Code" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SeverityLevel" type="tns:SeverityLevels"/>
+                    <xs:element minOccurs="0" name="MessageAr" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ResponseDetail" nillable="true" type="tns:ResponseDetail"/>
+            <xs:complexType name="EsbFault">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SeverityLevel" type="tns:SeverityLevels"/>
+                    <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="tns:ErrorDetails"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="EsbFault" nillable="true" type="tns:EsbFault"/>
+            <xs:complexType name="ErrorDetails">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorDetail" nillable="true" type="tns:ErrorDetail"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ErrorDetails" nillable="true" type="tns:ErrorDetails"/>
+            <xs:complexType name="ErrorDetail">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Code" type="xs:int"/>
+                    <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="SeverityLevel" type="tns:SeverityLevels"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ErrorDetail" nillable="true" type="tns:ErrorDetail"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <xs:complexType name="ArrayOflong">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="long" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOflong" nillable="true" type="tns:ArrayOflong"/>
+            <xs:complexType name="ArrayOfdouble">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="double" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfdouble" nillable="true" type="tns:ArrayOfdouble"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.ServiceSchema" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mofa.Visa.Nic.ServiceSchema">
+            <xs:complexType name="GetOrganizationVisaInfoRequestMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CompanyEstablishmentID" type="xs:long"/>
+                    <xs:element minOccurs="0" name="FromDate" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="OperatorID" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetOrganizationVisaInfoRequestMessage" nillable="true" type="tns:GetOrganizationVisaInfoRequestMessage"/>
+            <xs:complexType name="GetOrganizationVisaInfoResponseMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ListOrganizationVisaData" nillable="true" type="tns:ArrayOfOrganizationVisaData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetOrganizationVisaInfoResponseMessage" nillable="true" type="tns:GetOrganizationVisaInfoResponseMessage"/>
+            <xs:complexType name="ArrayOfOrganizationVisaData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationVisaData" nillable="true" type="tns:OrganizationVisaData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfOrganizationVisaData" nillable="true" type="tns:ArrayOfOrganizationVisaData"/>
+            <xs:complexType name="OrganizationVisaData">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="VisaNumber" type="xs:double"/>
+                    <xs:element minOccurs="0" name="VisaStatus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="VisaStatusCode" type="xs:short"/>
+                    <xs:element minOccurs="0" name="VisitorStatus" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="VisitorStatusCode" type="xs:short"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="OrganizationVisaData" nillable="true" type="tns:OrganizationVisaData"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="BlackListRequest">
+        <wsdl:part name="BlackListRequestMessage" element="tns:BlackListRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="BlackListRequest_Headers">
+        <wsdl:part xmlns:q1="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q1:ContextInformation"/>
+        <wsdl:part xmlns:q2="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q2:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="BlackListResponse">
+        <wsdl:part name="BlackListResponseMessage" element="tns:BlackListResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="BlackListResponse_Headers">
+        <wsdl:part xmlns:q3="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q3:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetBlackListFromNic_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q4="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q4:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="DeporteesRequest">
+        <wsdl:part name="DeporteesRequestMessage" element="tns:DeporteesRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="DeporteesRequest_Headers">
+        <wsdl:part xmlns:q5="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q5:ContextInformation"/>
+        <wsdl:part xmlns:q6="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q6:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="DeporteesResponse">
+        <wsdl:part name="DeporteesResponseMessage" element="tns:DeporteesResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="DeporteesResponse_Headers">
+        <wsdl:part xmlns:q7="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q7:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetDeporteesFromNic_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q8="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q8:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="ResidentInformationRequest">
+        <wsdl:part name="ResidentInformationRequestMessage" element="tns:ResidentInformationRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="ResidentInformationRequest_Headers">
+        <wsdl:part xmlns:q9="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q9:ContextInformation"/>
+        <wsdl:part xmlns:q10="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q10:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="ResidentInformationResponse">
+        <wsdl:part name="ResidentInformationResponseMessage" element="tns:ResidentInformationResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="ResidentInformationResponse_Headers">
+        <wsdl:part xmlns:q11="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q11:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetResidentInformationFromNic_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q12="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q12:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="CitizenInformationRequest">
+        <wsdl:part name="CitizenInformationRequestMessage" element="tns:CitizenInformationRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="CitizenInformationRequest_Headers">
+        <wsdl:part xmlns:q13="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q13:ContextInformation"/>
+        <wsdl:part xmlns:q14="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q14:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="CitizenInformationResponse">
+        <wsdl:part name="CitizenInformationResponseMessage" element="tns:CitizenInformationResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="CitizenInformationResponse_Headers">
+        <wsdl:part xmlns:q15="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q15:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetCitizenInformationFromNic_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q16="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q16:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="ValidateVisaDataRequest">
+        <wsdl:part name="ValidateVisaDataRequestMessage" element="tns:ValidateVisaDataRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="ValidateVisaDataRequest_Headers">
+        <wsdl:part xmlns:q17="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q17:ContextInformation"/>
+        <wsdl:part xmlns:q18="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q18:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="ValidateVisaDataResponse">
+        <wsdl:part name="ValidateVisaDataResponseMessage" element="tns:ValidateVisaDataResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="ValidateVisaDataResponse_Headers">
+        <wsdl:part xmlns:q19="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q19:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_ValidateVisaData_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q20="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q20:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="SendVisaG2gRequest">
+        <wsdl:part name="SendVisaG2gRequestMessage" element="tns:SendVisaG2gRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="SendVisaG2gRequest_Headers">
+        <wsdl:part xmlns:q21="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q21:ContextInformation"/>
+        <wsdl:part xmlns:q22="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q22:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="SendVisaG2gResponse">
+        <wsdl:part name="SendVisaG2gResponseMessage" element="tns:SendVisaG2gResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="SendVisaG2gResponse_Headers">
+        <wsdl:part xmlns:q23="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q23:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_SendVisaList_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q24="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q24:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_SendIssuedVisaList_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q25="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q25:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="CancelVisaG2gRequest">
+        <wsdl:part name="CancelVisaG2gRequestMessage" element="tns:CancelVisaG2gRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="CancelVisaG2gRequest_Headers">
+        <wsdl:part xmlns:q26="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q26:ContextInformation"/>
+        <wsdl:part xmlns:q27="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q27:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="CancelVisaG2gResponse">
+        <wsdl:part name="CancelVisaG2gResponseMessage" element="tns:CancelVisaG2gResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="CancelVisaG2gResponse_Headers">
+        <wsdl:part xmlns:q28="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q28:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_CancelVisaList_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q29="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q29:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="BlackListDeporteesG2gRequest">
+        <wsdl:part name="BlackListDeporteesG2gRequestMessage" element="tns:BlackListDeporteesG2gRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="BlackListDeporteesG2gRequest_Headers">
+        <wsdl:part xmlns:q30="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q30:ContextInformation"/>
+        <wsdl:part xmlns:q31="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q31:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="BlackListDeporteesG2gResponse">
+        <wsdl:part name="BlackListDeporteesG2gResponseMessage" element="tns:BlackListDeporteesG2gResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="BlackListDeporteesG2gResponse_Headers">
+        <wsdl:part xmlns:q32="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q32:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetBlackListAndDeportees_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q33="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q33:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrganizationVisaInfoRequest">
+        <wsdl:part name="GetOrganizationVisaInfoRequestMessage" element="tns:GetOrganizationVisaInfoRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrganizationVisaInfoRequest_Headers">
+        <wsdl:part xmlns:q34="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q34:ContextInformation"/>
+        <wsdl:part xmlns:q35="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q35:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrganizationVisaInfoResponse">
+        <wsdl:part name="GetOrganizationVisaInfoResponseMessage" element="tns:GetOrganizationVisaInfoResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrganizationVisaInfoResponse_Headers">
+        <wsdl:part xmlns:q36="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q36:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetOrganizationVisaInfo_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q37="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q37:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="GetNicRejectedVisaRequest">
+        <wsdl:part name="GetNicRejectedVisaRequestMessage" element="tns:GetNicRejectedVisaRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetNicRejectedVisaRequest_Headers">
+        <wsdl:part xmlns:q38="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q38:ContextInformation"/>
+        <wsdl:part xmlns:q39="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q39:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="GetNicRejectedVisaResponse">
+        <wsdl:part name="GetNicRejectedVisaResponseMessage" element="tns:GetNicRejectedVisaResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetNicRejectedVisaResponse_Headers">
+        <wsdl:part xmlns:q40="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q40:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetNicRejectedVisa_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q41="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q41:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaRequest">
+        <wsdl:part name="GetExitEntryVisaRequestMessage" element="tns:GetExitEntryVisaRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaRequest_Headers">
+        <wsdl:part xmlns:q42="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q42:ContextInformation"/>
+        <wsdl:part xmlns:q43="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q43:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaResponse">
+        <wsdl:part name="GetExitEntryVisaResponseMessage" element="tns:GetExitEntryVisaResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaResponse_Headers">
+        <wsdl:part xmlns:q44="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q44:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetExitEntryVisa_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q45="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q45:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaWithResidentInfoRequest">
+        <wsdl:part name="GetExitEntryVisaWithResidentInfoRequestMessage" element="tns:GetExitEntryVisaWithResidentInfoRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaWithResidentInfoRequest_Headers">
+        <wsdl:part xmlns:q46="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q46:ContextInformation"/>
+        <wsdl:part xmlns:q47="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q47:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaWithResidentInfoResponse">
+        <wsdl:part name="GetExitEntryVisaWithResidentInfoResponseMessage" element="tns:GetExitEntryVisaWithResidentInfoResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetExitEntryVisaWithResidentInfoResponse_Headers">
+        <wsdl:part xmlns:q48="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q48:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetExitEntryVisaWithResidentInfo_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q49="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q49:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="GetWorkVisaDataRequest">
+        <wsdl:part name="GetWorkVisaDataRequestMessage" element="tns:GetWorkVisaDataRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetWorkVisaDataRequest_Headers">
+        <wsdl:part xmlns:q50="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q50:ContextInformation"/>
+        <wsdl:part xmlns:q51="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q51:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="GetWorkVisaDataResponse">
+        <wsdl:part name="GetWorkVisaDataResponseMessage" element="tns:GetWorkVisaDataResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetWorkVisaDataResponse_Headers">
+        <wsdl:part xmlns:q52="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q52:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetWorkVisaData_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q53="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q53:EsbFault"/>
+    </wsdl:message>
+    <wsdl:message name="GetDeletedWorkVisaRequest">
+        <wsdl:part name="GetDeletedWorkVisaRequestMessage" element="tns:GetDeletedWorkVisaRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetDeletedWorkVisaRequest_Headers">
+        <wsdl:part xmlns:q54="http://schemas.mofa.gov.sa/esb/2014/12/" name="ContextInformation" element="q54:ContextInformation"/>
+        <wsdl:part xmlns:q55="http://schemas.mofa.gov.sa/esb/2014/12/" name="Credential" element="q55:Credential"/>
+    </wsdl:message>
+    <wsdl:message name="GetDeletedWorkVisaResponse">
+        <wsdl:part name="GetDeletedWorkVisaResponseMessage" element="tns:GetDeletedWorkVisaResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="GetDeletedWorkVisaResponse_Headers">
+        <wsdl:part xmlns:q56="http://schemas.mofa.gov.sa/esb/2014/12/" name="ResponseResult" element="q56:ResponseResult"/>
+    </wsdl:message>
+    <wsdl:message name="INicG2GService_GetDeletedWorkVisa_EsbFaultFault_FaultMessage">
+        <wsdl:part xmlns:q57="http://schemas.mofa.gov.sa/esb/2014/12/" name="detail" element="q57:EsbFault"/>
+    </wsdl:message>
+    <wsdl:portType name="INicG2GService">
+        <wsdl:operation name="GetBlackListFromNic">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListFromNic" name="BlackListRequest" message="tns:BlackListRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListFromNicResponse" name="BlackListResponse" message="tns:BlackListResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListFromNicEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetBlackListFromNic_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeporteesFromNic">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeporteesFromNic" name="DeporteesRequest" message="tns:DeporteesRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeporteesFromNicResponse" name="DeporteesResponse" message="tns:DeporteesResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeporteesFromNicEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetDeporteesFromNic_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetResidentInformationFromNic">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetResidentInformationFromNic" name="ResidentInformationRequest" message="tns:ResidentInformationRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetResidentInformationFromNicResponse" name="ResidentInformationResponse" message="tns:ResidentInformationResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetResidentInformationFromNicEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetResidentInformationFromNic_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetCitizenInformationFromNic">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetCitizenInformationFromNic" name="CitizenInformationRequest" message="tns:CitizenInformationRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetCitizenInformationFromNicResponse" name="CitizenInformationResponse" message="tns:CitizenInformationResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetCitizenInformationFromNicEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetCitizenInformationFromNic_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateVisaData">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/ValidateVisaData" name="ValidateVisaDataRequest" message="tns:ValidateVisaDataRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/ValidateVisaDataResponse" name="ValidateVisaDataResponse" message="tns:ValidateVisaDataResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/ValidateVisaDataEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_ValidateVisaData_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendVisaList">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendVisaList" name="SendVisaG2gRequest" message="tns:SendVisaG2gRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendVisaListResponse" name="SendVisaG2gResponse" message="tns:SendVisaG2gResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendVisaListEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_SendVisaList_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendIssuedVisaList">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendIssuedVisaList" name="SendVisaG2gRequest" message="tns:SendVisaG2gRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendIssuedVisaListResponse" name="SendVisaG2gResponse" message="tns:SendVisaG2gResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendIssuedVisaListEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_SendIssuedVisaList_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelVisaList">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/CancelVisaList" name="CancelVisaG2gRequest" message="tns:CancelVisaG2gRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/CancelVisaListResponse" name="CancelVisaG2gResponse" message="tns:CancelVisaG2gResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/CancelVisaListEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_CancelVisaList_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBlackListAndDeportees">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListAndDeportees" name="BlackListDeporteesG2gRequest" message="tns:BlackListDeporteesG2gRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListAndDeporteesResponse" name="BlackListDeporteesG2gResponse" message="tns:BlackListDeporteesG2gResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListAndDeporteesEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetBlackListAndDeportees_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrganizationVisaInfo">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetOrganizationVisaInfo" name="GetOrganizationVisaInfoRequest" message="tns:GetOrganizationVisaInfoRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetOrganizationVisaInfoResponse" name="GetOrganizationVisaInfoResponse" message="tns:GetOrganizationVisaInfoResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetOrganizationVisaInfoEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetOrganizationVisaInfo_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetNicRejectedVisa">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetNicRejectedVisa" name="GetNicRejectedVisaRequest" message="tns:GetNicRejectedVisaRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetNicRejectedVisaResponse" name="GetNicRejectedVisaResponse" message="tns:GetNicRejectedVisaResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetNicRejectedVisaEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetNicRejectedVisa_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetExitEntryVisa">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisa" name="GetExitEntryVisaRequest" message="tns:GetExitEntryVisaRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisaResponse" name="GetExitEntryVisaResponse" message="tns:GetExitEntryVisaResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisaEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetExitEntryVisa_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetExitEntryVisaWithResidentInfo">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisaWithResidentInfo" name="GetExitEntryVisaWithResidentInfoRequest" message="tns:GetExitEntryVisaWithResidentInfoRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisaWithResidentInfoResponse" name="GetExitEntryVisaWithResidentInfoResponse" message="tns:GetExitEntryVisaWithResidentInfoResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisaWithResidentInfoEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetExitEntryVisaWithResidentInfo_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetWorkVisaData">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetWorkVisaData" name="GetWorkVisaDataRequest" message="tns:GetWorkVisaDataRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetWorkVisaDataResponse" name="GetWorkVisaDataResponse" message="tns:GetWorkVisaDataResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetWorkVisaDataEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetWorkVisaData_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeletedWorkVisa">
+            <wsdl:input wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeletedWorkVisa" name="GetDeletedWorkVisaRequest" message="tns:GetDeletedWorkVisaRequest"/>
+            <wsdl:output wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeletedWorkVisaResponse" name="GetDeletedWorkVisaResponse" message="tns:GetDeletedWorkVisaResponse"/>
+            <wsdl:fault wsaw:Action="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeletedWorkVisaEsbFaultFault" name="EsbFaultFault" message="tns:INicG2GService_GetDeletedWorkVisa_EsbFaultFault_FaultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="NicG2GService_EndPoint" type="tns:INicG2GService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetBlackListFromNic">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListFromNic" style="document"/>
+            <wsdl:input name="BlackListRequest">
+                <soap:header message="tns:BlackListRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:BlackListRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="BlackListResponse">
+                <soap:header message="tns:BlackListResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeporteesFromNic">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeporteesFromNic" style="document"/>
+            <wsdl:input name="DeporteesRequest">
+                <soap:header message="tns:DeporteesRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:DeporteesRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="DeporteesResponse">
+                <soap:header message="tns:DeporteesResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetResidentInformationFromNic">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetResidentInformationFromNic" style="document"/>
+            <wsdl:input name="ResidentInformationRequest">
+                <soap:header message="tns:ResidentInformationRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:ResidentInformationRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ResidentInformationResponse">
+                <soap:header message="tns:ResidentInformationResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetCitizenInformationFromNic">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetCitizenInformationFromNic" style="document"/>
+            <wsdl:input name="CitizenInformationRequest">
+                <soap:header message="tns:CitizenInformationRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:CitizenInformationRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CitizenInformationResponse">
+                <soap:header message="tns:CitizenInformationResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="ValidateVisaData">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/ValidateVisaData" style="document"/>
+            <wsdl:input name="ValidateVisaDataRequest">
+                <soap:header message="tns:ValidateVisaDataRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:ValidateVisaDataRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ValidateVisaDataResponse">
+                <soap:header message="tns:ValidateVisaDataResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="SendVisaList">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendVisaList" style="document"/>
+            <wsdl:input name="SendVisaG2gRequest">
+                <soap:header message="tns:SendVisaG2gRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:SendVisaG2gRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SendVisaG2gResponse">
+                <soap:header message="tns:SendVisaG2gResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="SendIssuedVisaList">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/SendIssuedVisaList" style="document"/>
+            <wsdl:input name="SendVisaG2gRequest">
+                <soap:header message="tns:SendVisaG2gRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:SendVisaG2gRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SendVisaG2gResponse">
+                <soap:header message="tns:SendVisaG2gResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="CancelVisaList">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/CancelVisaList" style="document"/>
+            <wsdl:input name="CancelVisaG2gRequest">
+                <soap:header message="tns:CancelVisaG2gRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:CancelVisaG2gRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CancelVisaG2gResponse">
+                <soap:header message="tns:CancelVisaG2gResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetBlackListAndDeportees">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetBlackListAndDeportees" style="document"/>
+            <wsdl:input name="BlackListDeporteesG2gRequest">
+                <soap:header message="tns:BlackListDeporteesG2gRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:BlackListDeporteesG2gRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="BlackListDeporteesG2gResponse">
+                <soap:header message="tns:BlackListDeporteesG2gResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrganizationVisaInfo">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetOrganizationVisaInfo" style="document"/>
+            <wsdl:input name="GetOrganizationVisaInfoRequest">
+                <soap:header message="tns:GetOrganizationVisaInfoRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:GetOrganizationVisaInfoRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetOrganizationVisaInfoResponse">
+                <soap:header message="tns:GetOrganizationVisaInfoResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetNicRejectedVisa">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetNicRejectedVisa" style="document"/>
+            <wsdl:input name="GetNicRejectedVisaRequest">
+                <soap:header message="tns:GetNicRejectedVisaRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:GetNicRejectedVisaRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetNicRejectedVisaResponse">
+                <soap:header message="tns:GetNicRejectedVisaResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetExitEntryVisa">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisa" style="document"/>
+            <wsdl:input name="GetExitEntryVisaRequest">
+                <soap:header message="tns:GetExitEntryVisaRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:GetExitEntryVisaRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetExitEntryVisaResponse">
+                <soap:header message="tns:GetExitEntryVisaResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetExitEntryVisaWithResidentInfo">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetExitEntryVisaWithResidentInfo" style="document"/>
+            <wsdl:input name="GetExitEntryVisaWithResidentInfoRequest">
+                <soap:header message="tns:GetExitEntryVisaWithResidentInfoRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:GetExitEntryVisaWithResidentInfoRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetExitEntryVisaWithResidentInfoResponse">
+                <soap:header message="tns:GetExitEntryVisaWithResidentInfoResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetWorkVisaData">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetWorkVisaData" style="document"/>
+            <wsdl:input name="GetWorkVisaDataRequest">
+                <soap:header message="tns:GetWorkVisaDataRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:GetWorkVisaDataRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetWorkVisaDataResponse">
+                <soap:header message="tns:GetWorkVisaDataResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeletedWorkVisa">
+            <soap:operation soapAction="http://schemas.mofa.gov.sa/NicG2GService/INicG2GService/GetDeletedWorkVisa" style="document"/>
+            <wsdl:input name="GetDeletedWorkVisaRequest">
+                <soap:header message="tns:GetDeletedWorkVisaRequest_Headers" part="ContextInformation" use="literal"/>
+                <soap:header message="tns:GetDeletedWorkVisaRequest_Headers" part="Credential" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetDeletedWorkVisaResponse">
+                <soap:header message="tns:GetDeletedWorkVisaResponse_Headers" part="ResponseResult" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EsbFaultFault">
+                <soap:fault use="literal" name="EsbFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="NicG2GService">
+        <wsdl:port name="NicG2GService_EndPoint" binding="tns:NicG2GService_EndPoint">
+            <soap:address location="http://172.22.16.11/Mofa.Visa.Nic.G2G/NicG2GService.svc"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
