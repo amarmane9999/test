@@ -25,6 +25,7 @@
 		<version>3.20.1.redhat-00064</version>
 	</parent>
 
+
 	<artifactId>camel-example-spring-boot-soap-cxf</artifactId>
 	<name>Camel SB Examples :: SOAP CXF</name>
 	<description>An example showing the Camel SOAP CXF</description>
