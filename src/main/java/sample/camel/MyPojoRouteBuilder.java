@@ -34,7 +34,7 @@ public class MyPojoRouteBuilder extends RouteBuilder {
 	CxfEndpoint contact() {
 		CxfEndpoint contactEndpoint = new CxfEndpoint();
 		contactEndpoint.setServiceClass(ContactService.class);
-		contactEndpoint.setAddress("/");
+		contactEndpoint.setAddress("/contact");
 
 		return contactEndpoint;
 	}
