@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/openjdk-11@sha256:a0a1c5d527d42afb99dbf748581c5dcf95d6943c443fbb9a107fc54b635dfb00
+FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:v4.10
 
 MAINTAINER MoFA
 
