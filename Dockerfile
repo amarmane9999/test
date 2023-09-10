@@ -2,6 +2,7 @@ FROM registry.access.redhat.com/ubi9/openjdk-11@sha256:a0a1c5d527d42afb99dbf7485
 
 MAINTAINER MoFA
 
+CMD mvn clean package -DskipTests
 # copy my jar file
 COPY target/*.jar app.jar
 
